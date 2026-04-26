@@ -1,4 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import {getDummy} from '../actions/getDummy'
 
 interface CounterState {
   value: number;
@@ -21,6 +22,11 @@ export const counterSlice = createSlice({
     incrementByAmount: (state, action: PayloadAction<number>) => {
       state.value += action.payload;
     },
+  },
+    extraReducers: (builder) => {
+    builder.addCase(getDummy.fulfilled, (state, action) => {
+      state.value = action.payload.value;
+    });
   },
 });
 
