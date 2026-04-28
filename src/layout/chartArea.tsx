@@ -1,4 +1,4 @@
-import { BookOpenText, LaptopMinimalCheck } from "lucide-react";
+import { BookOpenText } from "lucide-react";
 function ChartArea() {
   return (
     <>
