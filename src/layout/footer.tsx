@@ -3,7 +3,7 @@ function Footer() {
     <>
       <section className="w-full flex flex-col justify-center">
         <div className=" bg-[#FAFAFA] w-full flex flex-row justify-center">
-          <div className="max-w-281 flex flex-row w-full justify-between items-center my-10">
+          <div className="max-w-281 flex flex-row w-full justify-between items-center my-10 max-lg:flex-col max-lg:items-start max-lg:ml-11">
             <div className="w-59  font-montserrat font-bold text-[24px] leading-8 tracking-[0.1px] my-3.5">
               Bandage
             </div>
@@ -36,7 +36,7 @@ function Footer() {
           </div>
         </div>
         <div className="  w-full flex flex-row justify-center">
-          <div className="max-w-281 flex flex-row w-full  items-start my-12.5 gap-7.5">
+          <div className="max-w-281 flex flex-row w-full  items-start my-12.5 gap-7.5  max-lg:flex-col  max-lg:items-start max-lg:ml-11">
             <div className="w-37 flex flex-col gap-2.5">
               <h5 className="mb-2.5 font-montserrat font-bold text-[16px] leading-6 tracking-[0.1px] text-[#252B42]">
                 Company Info
@@ -118,8 +118,8 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className=" bg-[#FAFAFA] w-full flex flex-row justify-center">
-          <div className="max-w-281 flex flex-row w-full items-center my-5.5 font-montserrat font-bold text-[14px] leading-6 tracking-[0.2px] text-[#737373]">
+        <div className=" bg-[#FAFAFA] w-full flex flex-row justify-center max-lg:min-h-25 max-lg:flex max-lg:justify-center max-lg:items-center">
+          <div className="max-w-281 flex flex-row w-full items-center my-5.5 font-montserrat font-bold text-[14px] leading-6 tracking-[0.2px] text-[#737373]  max-lg:w-51 max-lg:text-center max-lg:my-0  max-lg:h-fit">
             Made With Love By Finland All Right Reserved
           </div>
         </div>

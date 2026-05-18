@@ -14,10 +14,10 @@ import {
 function FeaturedPostsCard() {
   return (
     <>
-      <div className="w-124.5 flex flex-row">
-        <div className="min-w-52.25 h-full relative flex flex-col justify-between">
+      <div className="w-124.5 flex flex-row max-lg:w-full max-lg:flex-col">
+        <div className="min-w-52.25 h-full relative flex flex-col justify-between max-lg:min-h-75">
           <img
-            className="h-full w-auto object-cover absolute -z-1 "
+            className="h-full w-auto object-cover absolute -z-1 max-lg:w-full max-lg:h-auto max-lg:max-h-75"
             src={FeaturedPostsCardImg}
             alt=""
           />

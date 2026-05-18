@@ -1,26 +1,57 @@
-import BestProductCard from "../assets/bpCardimg.jpg";
+import { useHistory } from "react-router-dom";
 
-function BestProductsCard() {
+function BestProductsCard({ product }: { product: any }) {
+  const history = useHistory();
+
+  if (!product) return null;
+
+  const slugify = (text: string) => {
+    if (!text) return "";
+    return text
+      .toLowerCase()
+      .replace(/ğ/g, "g")
+      .replace(/ü/g, "u")
+      .replace(/ş/g, "s")
+      .replace(/ı/g, "i")
+      .replace(/ö/g, "o")
+      .replace(/ç/g, "cc")
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/\s+/g, "-");
+  };
+
+  const handleCardClick = () => {
+    const gender = product.category_id % 2 === 0 ? "erkek" : "kadin";
+    const categoryName = "giyim";
+    const productSlug = slugify(product.name);
+
+    history.push(
+      `/shop/${gender}/${categoryName}/${product.category_id}/${productSlug}/${product.id}`,
+    );
+  };
+
   return (
-    <>
-      <div className="w-45.75 flex flex-col">
-        <div className="w-full max-h-59.5 overflow-hidden">
-          <img className="w-full h-auto" src={BestProductCard} alt="" />
-        </div>
-        <div className="flex flex-col gap-2.5 my-7.5">
-          <h5 className="font-montserrat font-bold text-[16px] leading-6 tracking-[0.1px] text-center text-[#252B42]">
-            Graphic Design
-          </h5>
-          <p className="font-montserrat font-bold text-[14px] leading-6 tracking-[0.2px] text-center text-[#737373]">
-            English Department
-          </p>
-          <div className="flex justify-center gap-1.25">
-            <span className="font-montserrat font-bold text-[16px] leading-6 tracking-[0.1px] text-center text-[#BDBDBD]">$16.48</span>
-            <span className="font-montserrat font-bold text-[16px] leading-6 tracking-[0.1px] text-center text-[#23856D]">$6.48</span>
-          </div>
-        </div>
+    <div
+      onClick={handleCardClick}
+      className="w-60 flex flex-col items-center text-center bg-white rounded-md p-4 border border-gray-100 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group"
+    >
+      <div className="overflow-hidden rounded-sm w-full h-75 mb-4">
+        <img
+          src={product.images?.[0]?.url || "https://via.placeholder.com/300"}
+          alt={product.name}
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
       </div>
-    </>
+      <h5 className="font-montserrat font-bold text-[16px] text-[#252B42] mb-2 line-clamp-1">
+        {product.name}
+      </h5>
+      <p className="font-montserrat font-bold text-[14px] text-[#737373] mb-2 line-clamp-2 px-2">
+        {product.description}
+      </p>
+      <div className="font-montserrat font-bold text-[16px] text-[#23856D]">
+        ${product.price}
+      </div>
+    </div>
   );
 }
+
 export default BestProductsCard;
